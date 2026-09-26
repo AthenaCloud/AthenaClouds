@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Para a minha nhanhela 🤍</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rosa-suave:#ebe0f7;
+    --rosa-medio:#b48ee0;
+    --rosa-forte:#7d4bad;
+    --branco:#fdfbff;
+    --texto:#4a3660;
+    --dourado:#a9819b;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  *{box-sizing:border-box;}
+  body{
+    margin:0;min-height:100%;
+    background:linear-gradient(180deg,var(--branco) 0%, var(--rosa-suave) 40%, var(--branco) 75%, var(--rosa-suave) 100%);
+    font-family:'Quicksand',sans-serif;color:var(--texto);overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .heart{animation:float linear forwards;}
+    .burst-heart{animation:burst .9s ease-out forwards;}
+    .surgir{animation:surgir 1s ease both;}
+    .surgir-1{animation-delay:.1s;}
+    .surgir-2{animation-delay:.5s;}
+    .surgir-3{animation-delay:.9s;}
+    .pulso{animation:pulso 2.6s ease-in-out infinite;}
+  }
+  @keyframes float{0%{transform:translateY(0) rotate(0deg);opacity:0;}8%{opacity:.7;}92%{opacity:.5;}100%{transform:translateY(-115vh) rotate(25deg);opacity:0;}}
+  @keyframes burst{0%{transform:translate(-50%,-50%) scale(.4);opacity:1;}100%{transform:translate(-50%,-50%) scale(1.15) translateY(-90px);opacity:0;}}
+  @keyframes surgir{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes pulso{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
+
+  .hearts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+  .heart{position:absolute;bottom:-40px;color:var(--rosa-medio);}
+  .burst-heart{position:fixed;pointer-events:none;z-index:5;color:var(--rosa-forte);font-size:18px;}
+
+  main{position:relative;z-index:1;max-width:640px;margin:0 auto;padding:56px 24px 90px;text-align:center;}
+
+  .flor{width:34px;height:34px;margin:0 auto 14px;color:var(--dourado);}
+  .divisor{display:flex;align-items:center;gap:12px;margin:48px 0 32px;color:var(--dourado);}
+  .divisor::before,.divisor::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--dourado),transparent);}
+  .divisor svg{width:16px;height:16px;flex-shrink:0;}
+
+  .eyebrow{font-size:15px;color:var(--rosa-forte);margin-bottom:6px;}
+  h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(42px,11vw,68px);line-height:1.05;margin:0 0 8px;color:var(--rosa-forte);}
+  .subtitulo{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,4vw,22px);margin:0 0 30px;}
+  .toque-info{font-size:13px;color:var(--rosa-medio);margin:0 0 40px;}
+
+  .contador{background:var(--branco);border:1px solid var(--rosa-medio);border-radius:22px;padding:30px 20px;margin:0 0 32px;box-shadow:0 14px 34px -20px rgba(201,107,138,.55);}
+  .contador .numero{font-family:'Cormorant Garamond',serif;font-size:clamp(50px,14vw,78px);color:var(--rosa-forte);line-height:1;}
+  .contador .legenda{font-size:14px;margin-top:6px;}
+
+  .botao-beijo{display:inline-flex;align-items:center;gap:8px;background:var(--rosa-forte);color:var(--branco);border:none;border-radius:999px;padding:14px 26px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;cursor:pointer;margin:0 0 8px;transition:transform .15s ease;}
+  .botao-beijo:active{transform:scale(.94);}
+  .contador-beijos{font-size:13px;color:var(--rosa-medio);margin:0;min-height:16px;}
+
+  .linha-tempo{text-align:left;margin:0 0 8px;}
+  .linha-tempo h2, .amor h2, .motivos h2, .surpresa h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:27px;color:var(--rosa-forte);margin:0 0 26px;text-align:center;}
+  .etapas{position:relative;padding-left:28px;}
+  .etapas::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--rosa-medio),var(--dourado));}
+  .etapa{position:relative;margin-bottom:28px;}
+  .etapa:last-child{margin-bottom:0;}
+  .etapa::before{content:"";position:absolute;left:-28px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--branco);border:3px solid var(--rosa-forte);}
+  .etapa .data-e{font-size:13px;color:var(--dourado);font-weight:600;margin-bottom:2px;}
+  .etapa .texto-e{font-size:16px;line-height:1.6;}
+
+  .carta-toggle,.amor button{background:none;border:1px solid var(--rosa-medio);color:var(--rosa-forte);border-radius:999px;padding:10px 22px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;cursor:pointer;}
+  .carta-toggle{margin-bottom:24px;}
+  .carta{text-align:left;font-size:17px;line-height:1.85;max-width:80ch;margin:0 auto 0;max-height:0;overflow:hidden;opacity:0;transition:max-height .6s ease,opacity .6s ease,margin .6s ease;}
+  .carta.aberta{max-height:1200px;opacity:1;margin-bottom:8px;}
+  .carta p{margin:0 0 20px;}
+  .assinatura{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--rosa-forte);text-align:right;}
+
+  .amor{background:var(--branco);border-radius:22px;padding:32px 26px;box-shadow:0 14px 34px -20px rgba(201,107,138,.45);}
+  .amor p.desc{font-size:14px;color:var(--texto);text-align:center;margin:0 0 22px;}
+  .barra-wrap{margin:0 0 18px;}
+  input[type=range]{width:100%;accent-color:var(--rosa-forte);height:6px;}
+  .barra-legenda{display:flex;justify-content:space-between;font-size:12px;color:var(--rosa-medio);margin-top:6px;}
+  .resultado-amor{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--rosa-forte);min-height:28px;}
+
+  .motivos{text-align:left;background:var(--branco);border-radius:22px;padding:32px 28px;box-shadow:0 14px 34px -20px rgba(201,107,138,.4);}
+  .motivos .dica{text-align:center;font-size:13px;color:var(--rosa-medio);margin:-14px 0 18px;}
+  .motivos ul{margin:0;padding:0;list-style:none;}
+  .motivos li{display:flex;gap:12px;padding:12px 8px;border-bottom:1px dashed var(--rosa-suave);font-size:16px;border-radius:10px;cursor:pointer;transition:background .2s ease,transform .15s ease;}
+  .motivos li:last-child{border-bottom:none;}
+  .motivos li::before{content:"♡";color:var(--rosa-medio);flex-shrink:0;transition:transform .2s ease;}
+  .motivos li.tocado{background:var(--rosa-suave);}
+  .motivos li.tocado::before{content:"❤";color:var(--rosa-forte);transform:scale(1.2);}
+
+  .surpresa{background:var(--branco);border-radius:22px;padding:34px 26px;box-shadow:0 14px 34px -20px rgba(201,107,138,.45);}
+  .surpresa p.desc{font-size:14px;margin:0 0 20px;}
+  .selo{font-size:44px;cursor:pointer;display:inline-block;}
+  .mensagem-secreta{max-height:0;overflow:hidden;opacity:0;transition:max-height .6s ease,opacity .6s ease,margin .6s ease;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--rosa-forte);}
+  .mensagem-secreta.aberta{max-height:200px;opacity:1;margin-top:18px;}
+
+  .final{font-family:'Cormorant Garamond',serif;font-size:clamp(27px,6vw,36px);color:var(--rosa-forte);margin:44px 0 4px;}
+  .data{font-size:13px;color:var(--rosa-medio);margin-top:24px;}
+
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){--rosa-suave:#2c2438;--rosa-medio:#8a68b0;--rosa-forte:#d7b6f2;--branco:#221c2b;--texto:#ede3f7;--dourado:#c7a8d6;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<main>
+  <svg class="flor surgir surgir-1" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g fill="currentColor" opacity=".85">
+      <ellipse cx="24" cy="14" rx="7" ry="10"/><ellipse cx="24" cy="34" rx="7" ry="10"/>
+      <ellipse cx="14" cy="24" rx="10" ry="7"/><ellipse cx="34" cy="24" rx="10" ry="7"/>
+    </g>
+    <circle cx="24" cy="24" r="5" fill="#fffaf9"/>
+  </svg>
+
+  <div class="eyebrow surgir surgir-1">para ti, Daniela</div>
+  <h1 class="surgir surgir-2">minha nhanhela</h1>
+  <p class="subtitulo surgir surgir-3">feliz 2 meses do nosso namoro 🤍</p>
+  <p class="toque-info">toca no ecrã em qualquer lugar para soltar corações ✨</p>
+
+  <div class="contador">
+    <div class="numero pulso" id="dias">--</div>
+    <div class="legenda">dias a viver este amor, desde 26/07/2026</div>
+  </div>
+
+  <button class="botao-beijo" id="btnBeijo">enviar um beijo 💋</button>
+  <p class="contador-beijos" id="contBeijos"></p>
+
+  <div class="divisor"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.5 5c2 0 3.5 1.2 4.5 2.7C11 6.2 12.5 5 14.5 5 18 5 19.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></div>
+
+  <div class="linha-tempo">
+    <h2>nossa pequena história</h2>
+    <div class="etapas">
+      <div class="etapa">
+        <div class="data-e">26 de julho</div>
+        <div class="texto-e">o dia em que decidimos começar esta história juntos.</div>
+      </div>
+      <div class="etapa">
+        <div class="data-e">primeiro mês</div>
+        <div class="texto-e">os primeiros "amo-te", as primeiras rotinas a dois, e a certeza de que era mesmo isso que eu queria.</div>
+      </div>
+      <div class="etapa">
+        <div class="data-e">hoje, 2 meses</div>
+        <div class="texto-e">e aqui estou eu, cada dia mais apaixonado e mais grato por te ter ao meu lado.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divisor"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.5 5c2 0 3.5 1.2 4.5 2.7C11 6.2 12.5 5 14.5 5 18 5 19.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></div>
+
+  <button class="carta-toggle" id="btnCarta">abrir a minha carta para ti 💌</button>
+  <div class="carta" id="carta">
+    <p>Nhanhela, eu queria conseguir pôr em palavras o quanto tu mudaste os meus dias, mas acho que nenhuma frase feita dá conta disso. Por isso vou tentar à minha maneira.</p>
+    <p>Desde que entraste na minha vida, tudo ficou mais leve, mais colorido, mais... contigo. Faz apenas 2 meses de namoro, mas parece que já és parte de todos os meus planos, de todos os sítios onde imagino um "nós".</p>
+    <p>Amo-te de uma forma que me surpreende todos os dias. Adoro a tua maneira de rir, de te preocupares com tudo, de me fazeres sentir em casa mesmo quando estamos longe. E, sinceramente, preciso de ti — do teu carinho, da tua companhia, do teu abraço ao fim do dia.</p>
+    <p>Sou muito feliz contigo ao meu lado. Mesmo muito. E se depender de mim, estes 2 meses são só o início de uma história bem, bem mais longa.</p>
+    <p class="assinatura">com todo o meu amor, o teu namorado.</p>
+  </div>
+
+  <div class="divisor"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.5 5c2 0 3.5 1.2 4.5 2.7C11 6.2 12.5 5 14.5 5 18 5 19.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></div>
+
+  <div class="amor">
+    <h2>o amorómetro</h2>
+    <p class="desc">arrasta até onde achas que te amo (aviso: não tem limite)</p>
+    <div class="barra-wrap">
+      <input type="range" min="0" max="100" value="50" id="sliderAmor">
+      <div class="barra-legenda"><span>pouco</span><span>infinito</span></div>
+    </div>
+    <p class="resultado-amor" id="resultadoAmor"></p>
+  </div>
+
+  <div class="divisor"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.5 5c2 0 3.5 1.2 4.5 2.7C11 6.2 12.5 5 14.5 5 18 5 19.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></div>
+
+  <div class="motivos">
+    <h2>alguns motivos para te amar</h2>
+    <p class="dica">toca em cada um</p>
+    <ul id="listaMotivos">
+      <li>o jeito carinhoso que só a nhanhela tem</li>
+      <li>a paciência comigo nos meus dias mais difíceis</li>
+      <li>o teu sorriso, que muda logo o meu humor</li>
+      <li>a forma como cuidas de quem amas</li>
+      <li>e por seres simplesmente quem és</li>
+    </ul>
+  </div>
+
+  <div class="divisor"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.5 5c2 0 3.5 1.2 4.5 2.7C11 6.2 12.5 5 14.5 5 18 5 19.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></div>
+
+  <div class="carta aberta" style="margin-bottom:44px;">
+    <p class="assinatura" style="text-align:center;font-size:24px;margin-bottom:18px;">um obrigado, do fundo do coração</p>
+    <p>Obrigado, nhanhela, por seres a melhor namorada que eu podia pedir — maravilhosa como és, por dentro e por fora. Obrigado por me deixares conhecer os teus gostos, as tuas manias, tudo o que faz de ti exatamente tu.</p>
+    <p>Obrigado por estares comigo para tudo, por me apoiares sem sequer eu precisar de pedir. Adoro as tuas brincadeiras, o teu jeito parvo de me fazer rir, e cada memória boa que já guardámos nestes 2 meses.</p>
+    <p style="margin-bottom:0;">Adoro tudo o que fazes — até aquilo que achas pequeno. É disso que eu me apaixono todos os dias.</p>
+  </div>
+
+  <div class="divisor"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.1C.4 8.6 2 5 5.5 5c2 0 3.5 1.2 4.5 2.7C11 6.2 12.5 5 14.5 5 18 5 19.6 8.6 22 11.9 19.5 16.4 12 21 12 21z"/></svg></div>
+
+  <div class="surpresa">
+    <h2>uma mensagem escondida</h2>
+    <p class="desc">toca no selo para abrir</p>
+    <span class="selo" id="selo">💌</span>
+    <div class="mensagem-secreta" id="mensagemSecreta">"seja qual for o dia, o mês ou o ano — escolho-te sempre de novo."</div>
+  </div>
+  <p class="final">Feliz 2 meses, meu amor.<br>Amo-te, nhanhela. 💜🌸</p>
+  <p class="data">26 de julho de 2026 — o começo de tudo</p>
+</main>
+
+<script>
+  const heartsLayer = document.getElementById('hearts');
+  const simbolos = ['♡','🤍','❀','❤'];
+
+  function criarCoracaoFundo(){
+    const s = document.createElement('span');
+    s.className='heart';
+    s.textContent = simbolos[Math.floor(Math.random()*simbolos.length)];
+    s.style.left = Math.random()*100+'vw';
+    s.style.fontSize = (14+Math.random()*18)+'px';
+    s.style.animationDuration = (9+Math.random()*8)+'s';
+    heartsLayer.appendChild(s);
+    setTimeout(()=>s.remove(), 18000);
+  }
+  for(let i=0;i<14;i++) setTimeout(criarCoracaoFundo, i*300);
+  setInterval(criarCoracaoFundo, 900);
+
+  function explodirCoracoes(x, y, qtd){
+    for(let i=0;i<qtd;i++){
+      const h = document.createElement('span');
+      h.className='burst-heart';
+      h.textContent = simbolos[Math.floor(Math.random()*simbolos.length)];
+      const dx = (Math.random()-0.5)*120;
+      h.style.left = (x+dx)+'px';
+      h.style.top = y+'px';
+      h.style.fontSize = (14+Math.random()*14)+'px';
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(), 950);
+    }
+  }
+
+  document.body.addEventListener('click', (e)=>{
+    if(e.target.closest('button') || e.target.closest('li') || e.target.closest('.selo') || e.target.closest('input')) return;
+    explodirCoracoes(e.clientX, e.clientY, 4);
+  });
+
+  let beijos = 0;
+  const contBeijos = document.getElementById('contBeijos');
+  document.getElementById('btnBeijo').addEventListener('click', (e)=>{
+    beijos++;
+    const r = e.target.getBoundingClientRect();
+    explodirCoracoes(r.left+r.width/2, r.top, 8);
+    contBeijos.textContent = beijos===1 ? '1 beijo enviado 💋' : beijos+' beijos enviados 💋';
+  });
+
+  const btnCarta = document.getElementById('btnCarta');
+  const carta = document.getElementById('carta');
+  btnCarta.addEventListener('click', ()=>{
+    const aberta = carta.classList.toggle('aberta');
+    btnCarta.textContent = aberta ? 'fechar a carta' : 'abrir a minha carta para ti 💌';
+  });
+
+  document.querySelectorAll('#listaMotivos li').forEach(li=>{
+    li.addEventListener('click', ()=>li.classList.toggle('tocado'));
+  });
+
+  const slider = document.getElementById('sliderAmor');
+  const resultadoAmor = document.getElementById('resultadoAmor');
+  const frasesAmor = [
+    {ate:30, texto:'só isso? ainda vou amar-te muito mais 😏'},
+    {ate:70, texto:'a aquecer... mas ainda não chega nem perto'},
+    {ate:99, texto:'quase lá, mas o meu amor por ti não tem fim'},
+    {ate:100, texto:'isso mesmo! infinito, tal como eu te amo ♾️💜'}
+  ];
+  function atualizarAmor(v){
+    const f = frasesAmor.find(f=>v<=f.ate) || frasesAmor[frasesAmor.length-1];
+    resultadoAmor.textContent = f.texto;
+  }
+  slider.addEventListener('input', ()=>atualizarAmor(Number(slider.value)));
+  atualizarAmor(50);
+
+  const selo = document.getElementById('selo');
+  const msgSecreta = document.getElementById('mensagemSecreta');
+  selo.addEventListener('click', ()=>{
+    msgSecreta.classList.toggle('aberta');
+    selo.textContent = msgSecreta.classList.contains('aberta') ? '💖' : '💌';
+  });
+
+  try{
+    const inicio = new Date(2026,6,26);
+    const hoje = new Date();
+    const dias = Math.max(0, Math.floor((hoje-inicio)/(1000*60*60*24)));
+    document.getElementById('dias').textContent = dias;
+  }catch(e){
+    document.getElementById('dias').textContent = '60+';
+  }
+</script>
+
+</body>
+</html>
